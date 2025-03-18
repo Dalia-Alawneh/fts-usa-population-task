@@ -1,14 +1,19 @@
 const API_URL = 'https://datausa.io/api/data?drilldowns=Nation&measures=Population'
 
 const getPopulationData = async () => {
-  try{
+  try {
     const response = await fetch(API_URL);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    return []
-  }catch(e){
+    return await response.json();
+  } catch (e) {
     console.error("Error", e.message)
+    new Toast({
+      message: e.message,
+      type: 'danger'
+    });
+    return { data: [] }
   }
 }
 
@@ -26,10 +31,10 @@ const renderPopulationData = (data) => {
 const showDataTable = async () => {
   const { data } = await getPopulationData();
   const populationTable = document.getElementById('populations')
-  if(data) {
+  if (data) {
     populationTable.innerHTML = renderPopulationData(data)
-  }else{
-    populationTable.innerHTML= '<td colspan="5" class="py-4 w-full text-center">No Data Found</td>'
+  } else {
+    populationTable.innerHTML = '<td colspan="5" class="py-4 w-full text-center">No Data Found</td>'
   }
 }
 

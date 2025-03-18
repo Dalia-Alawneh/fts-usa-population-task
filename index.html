@@ -7,7 +7,30 @@
 
   <link rel="stylesheet" href="dist/output.css">
 </head>
-<body>
+<body class="dark:bg-gray-800">
+  <header>
+    <div class="max-w-screen-3xl min-h-screen flex flex-col mx-auto py-4 px-4 sm:px-16 mt-16">
+      <h1 class="text-3xl font-bold mb-10 text-gray-900 dark:text-white">USA Nations Population</h1>
+      <div class="overflow-x-auto rounded-lg shadow-lg bg-white dark:bg-gray-800">
+        <table class="min-w-full table-auto text-left">
+          <thead class="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-200 uppercase text-sm">
+            <tr>
+              <th class="py-3 px-6">ID Nation</th>
+              <th class="py-3 px-6">Year</th>
+              <th class="py-3 px-6">Population</th>
+              <th class="py-3 px-6">Nation</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-700 dark:text-gray-300" id="populations">
+            
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </header>
   
+
+  <script src="src/js/index.js"></script>
 </body>
 </html>
